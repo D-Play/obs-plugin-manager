@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "plugins": [
+    {
+      "id": "obs-move-transition",
+      "name": "Move Transition",
+      "author": "Exeldro",
+      "description": "Ermöglicht fließende Bewegungsübergänge von Quellen zu neuen Positionen während eines Szenenwechsels.",
+      "repo": "exeldro/obs-move-transition",
+      "homepage": "https://obsproject.com/forum/resources/move-transition.1029/"
+    },
+    {
+      "id": "obs-source-clone",
+      "name": "Source Clone",
+      "author": "Exeldro",
+      "description": "Erlaubt das Klonen vorhandener Quellen mit individuellen Filtern und unabhängigen Transformationen.",
+      "repo": "exeldro/obs-source-clone",
+      "homepage": "https://obsproject.com/forum/resources/source-clone.1059/"
+    },
+    {
+      "id": "obs-vertical-canvas",
+      "name": "Aitum Vertical Canvas",
+      "author": "Aitum",
+      "description": "Fügt ein Hochformat-Canvas (9:16) für paralleles Streaming & Clips auf TikTok, YouTube Shorts und Instagram Reels hinzu.",
+      "repo": "Aitum/obs-vertical-canvas",
+      "homepage": "https://aitum.tv/products/vertical"
+    },
+    {
+      "id": "obs-shaderfilter",
+      "name": "Shader Filter",
+      "author": "Exeldro",
+      "description": "Erlaubt das Anwenden von benutzerdefinierten HLSL-Shadern und visuellen Effekten auf Video- und Bildquellen.",
+      "repo": "exeldro/obs-shaderfilter",
+      "homepage": "https://obsproject.com/forum/resources/obs-shaderfilter.1736/"
+    },
+    {
+      "id": "obs-source-record",
+      "name": "Source Record",
+      "author": "Exeldro",
+      "description": "Ermöglicht das separate und gleichzeitige Aufnehmen einzelner Quellen im Hintergrund während des Streams.",
+      "repo": "exeldro/obs-source-record",
+      "homepage": "https://obsproject.com/forum/resources/source-record.1285/"
+    },
+    {
+      "id": "obs-downstream-keyer",
+      "name": "Downstream Keyer",
+      "author": "Exeldro",
+      "description": "Fügt Downstream-Keyer-Docks für Overlays hinzu, die über allen Szenenwechseln sichtbar bleiben.",
+      "repo": "exeldro/obs-downstream-keyer",
+      "homepage": "https://obsproject.com/forum/resources/downstream-keyer.1254/"
+    },
+    {
+      "id": "obs-3d-effect",
+      "name": "3D Effect",
+      "author": "Exeldro",
+      "description": "Fügt Szenenquellen 3D-Rotations-, Skalierungs-, Neigungs- und Tiefeneffekte hinzu.",
+      "repo": "exeldro/obs-3d-effect",
+      "homepage": "https://obsproject.com/forum/resources/3d-effect.1692/"
+    },
+    {
+      "id": "obs-audio-monitor",
+      "name": "Audio Monitor",
+      "author": "Exeldro",
+      "description": "Fügt Audioquellen Filter hinzu, um Tonspuren an separate Audiogeräte und Kopfhörer auszugeben.",
+      "repo": "exeldro/obs-audio-monitor",
+      "homepage": "https://obsproject.com/forum/resources/audio-monitor.1186/"
+    },
+    {
+      "id": "obs-advanced-masks",
+      "name": "Advanced Masks",
+      "author": "FiniteSingularity",
+      "description": "Erweiterte Maskierungswerkzeuge mit Alphamasken, Farbverläufen, geometrischen Formen und weichen Kanten.",
+      "repo": "FiniteSingularity/obs-advanced-masks",
+      "homepage": "https://obsproject.com/forum/resources/advanced-masks.1856/"
+    },
+    {
+      "id": "obs-backgroundremoval",
+      "name": "Background Removal (AI)",
+      "author": "occ-ai",
+      "description": "KI-gestützte Hintergrundentfernung und Weichzeichner für Webcams ohne Greenscreen.",
+      "repo": "occ-ai/obs-backgroundremoval",
+      "homepage": "https://obsproject.com/forum/resources/background-removal-virtual-green-screen-blur.1260/"
+    },
+    {
+      "id": "spectralizer",
+      "name": "Spectralizer",
+      "author": "univrsal",
+      "description": "Echtzeit-Audio-Visualisierer für Musik und Sprache mit anpassbaren Frequenzbändern und Balken.",
+      "repo": "univrsal/spectralizer",
+      "homepage": "https://obsproject.com/forum/resources/spectralizer.861/"
+    },
+    {
+      "id": "obs-transition-table",
+      "name": "Transition Table",
+      "author": "Exeldro",
+      "description": "Ermöglicht das Festlegen individueller Übergänge für beliebige Kombinationen aus Quell- und Zielszenen.",
+      "repo": "exeldro/obs-transition-table",
+      "homepage": "https://obsproject.com/forum/resources/transition-table.1174/"
+    }
+  ]
+}

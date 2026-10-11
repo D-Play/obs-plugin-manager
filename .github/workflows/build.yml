@@ -1,0 +1,63 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    tags: [ "v*" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Qt 6
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.6.3'
+        arch: 'win64_msvc2019_64'
+        modules: 'qtnetwork'
+
+    - name: Download OBS Studio SDK
+      shell: pwsh
+      run: |
+        $obsVersion = "30.2.3"
+        Invoke-WebRequest -Uri "https://github.com/obsproject/obs-studio/releases/download/$obsVersion/obs-studio-$obsVersion-Windows.zip" -OutFile "obs.zip"
+        Expand-Archive -Path "obs.zip" -DestinationPath "obs-install"
+        $obsPath = (Get-Item "obs-install").FullName
+        echo "OBS_STUDIO_DIR=$obsPath" >> $env:GITHUB_ENV
+
+    - name: Configure CMake
+      run: |
+        cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DOBS_STUDIO_DIR="${{ env.OBS_STUDIO_DIR }}"
+
+    - name: Build Plugin
+      run: |
+        cmake --build build --config Release
+
+    - name: Package Plugin ZIP
+      shell: pwsh
+      run: |
+        $pkgDir = "package/obs-plugin-manager"
+        New-Item -ItemType Directory -Path "$pkgDir/bin/64bit" -Force
+        Copy-Item "build/Release/obs-plugin-manager.dll" -Destination "$pkgDir/bin/64bit/"
+        Compress-Archive -Path "package/*" -DestinationPath "obs-plugin-manager-windows-x64.zip"
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: obs-plugin-manager-windows-x64
+        path: obs-plugin-manager-windows-x64.zip
+
+    - name: Create GitHub Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: obs-plugin-manager-windows-x64.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
