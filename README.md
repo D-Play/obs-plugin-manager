@@ -8,7 +8,7 @@
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Native OBS Studio Integration:** Embedded right into the OBS menu: **Werkzeuge (Tools) &rarr; Plugin Manager...**.
 - **Empfohlen (Curated Plugins):** One-click installation for tested, popular plugins:
@@ -31,7 +31,7 @@
 
 ---
 
-## 🚀 Installation (Für Benutzer / For Users)
+##  Installation (Für Benutzer / For Users)
 
 ### Windows (64-Bit)
 
@@ -85,7 +85,7 @@ Die fertige DLL wird in `build/Release/obs-plugin-manager.dll` erstellt.
 
 ---
 
-## 📁 Projektstruktur
+##  Projektstruktur
 
 ```text
 obs-plugin-manager/
@@ -115,6 +115,6 @@ obs-plugin-manager/
 
 ---
 
-## 📜 Lizenz
+##  Lizenz
 
 Dieses Projekt ist unter der **GNU General Public License v2.0 (GPL-2.0)** lizenziert – passend zur Lizenz von OBS Studio. Details siehe [LICENSE](LICENSE).
