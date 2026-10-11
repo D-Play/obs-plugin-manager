@@ -8,6 +8,9 @@ on:
     branches: [ "main", "master" ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     runs-on: windows-latest
@@ -17,24 +20,18 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Setup Qt 6
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
         version: '6.6.3'
         arch: 'win64_msvc2019_64'
-        modules: 'qtnetwork'
+        cache: true
 
-    - name: Download OBS Studio SDK
-      shell: pwsh
-      run: |
-        $obsVersion = "30.2.3"
-        Invoke-WebRequest -Uri "https://github.com/obsproject/obs-studio/releases/download/$obsVersion/obs-studio-$obsVersion-Windows.zip" -OutFile "obs.zip"
-        Expand-Archive -Path "obs.zip" -DestinationPath "obs-install"
-        $obsPath = (Get-Item "obs-install").FullName
-        echo "OBS_STUDIO_DIR=$obsPath" >> $env:GITHUB_ENV
+    - name: Set up MSVC environment
+      uses: ilammy/msvc-dev-cmd@v1
 
     - name: Configure CMake
       run: |
-        cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DOBS_STUDIO_DIR="${{ env.OBS_STUDIO_DIR }}"
+        cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="${{ env.QT_ROOT_DIR }}"
 
     - name: Build Plugin
       run: |
@@ -46,6 +43,8 @@ jobs:
         $pkgDir = "package/obs-plugin-manager"
         New-Item -ItemType Directory -Path "$pkgDir/bin/64bit" -Force
         Copy-Item "build/Release/obs-plugin-manager.dll" -Destination "$pkgDir/bin/64bit/"
+        Copy-Item "README.md" -Destination "$pkgDir/" -ErrorAction SilentlyContinue
+        Copy-Item "LICENSE" -Destination "$pkgDir/" -ErrorAction SilentlyContinue
         Compress-Archive -Path "package/*" -DestinationPath "obs-plugin-manager-windows-x64.zip"
 
     - name: Upload Artifact

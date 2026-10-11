@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>src/data/curated.json</file>
-    </qresource>
-</RCC>

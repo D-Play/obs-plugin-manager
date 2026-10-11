@@ -15,8 +15,7 @@ CMakeUserPresets.json
 CMakeFiles/
 CMakeCache.txt
 
-# Local SDK and temporary files
-obs-sdk/
+# Temporary files
 *.log
 *.old
 *.tmp
