@@ -56,7 +56,7 @@
 
 ---
 
-## 🛠️ Build-Anleitung (Für Entwickler / For Developers)
+##  Build-Anleitung (Für Entwickler / For Developers)
 
 ### Voraussetzungen
 - **Betriebssystem:** Windows 10 / 11 (64-Bit)
